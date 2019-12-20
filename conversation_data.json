@@ -1,0 +1,18 @@
+{"intents": [
+        {
+
+        "pattern": ["thanks", "thank you", "good job", "thank you so much"],
+        "responses": ["are you kidding? you are my boss","pleasure is all mine", "no worries","its my job dear"]
+        },
+        {
+
+        "pattern": ["hello", "what's up", "hey there", "how are you"],
+        "responses": ["hey! how are uh?","hello there, wHat can i do for you?","hello! what's up", "here you are.. hai","hey! how a you doing"]
+        },
+        {
+        "responses": ["Sorry could not hear you", "I DID NOT GET IT","PLEASE SAY that AGAIN SIR", "could you please repeat"]
+        }
+
+   ]
+}
+
