@@ -124,7 +124,9 @@ def send_mail():
             return mycommand()
     except Exception as e:
         print(f'Error Occured{e}')
-
+def read_out():
+    t = input("Paste the text here")
+    speakup(t)
    
 def wiki():
     speakup('What would you like to know about?')
@@ -156,11 +158,14 @@ def myzara(text):
         print("say 'SEND MAIL' to -> SEND A MAIL TO ANYONE\n".center(os.get_terminal_size().columns))
         print("say 'SEARCH THE WEB' to -> BROWSE ANYTHING ON THE WEB\n".center(os.get_terminal_size().columns))
         print("say 'TIME' to -> KNOW ABOUT CURRENT TIME\n".center(os.get_terminal_size().columns))
+        print("say 'READ' to-> MAKE ME READ LENGTHY PARAGRAPHS\n".center(os.get_terminal_size().columns))
         print("say 'SHUT DOWN' to -> TO STOP THE PROGRAM\n".center(os.get_terminal_size().columns))
         print('-'*55,'GO AHEAD! GIMME A COMMAND','-'*55,''.center(os.get_terminal_size().columns))
 
+    elif 'read' in text:
+        read_out()
     elif 'time' in text:
-        wishMe()
+        time()
     elif 'send mail' in text:
         send_mail()
     elif 'search the webn' in text:
