@@ -31,10 +31,11 @@ def mycommand():
             audio=r.listen(source)
             text=r.recognize_google(audio)
             # text=input('Enter your command')
+            text = text.lower()
             print(f'COMMAND:-{text}')
             return text
         except Exception as e:
-            print("Error Occured{e}")
+            print("COULDN'T HEAR ANYTHING")
 
 def time():
     strTime = datetime.datetime.now().strftime("%H:%M:%S")    
@@ -127,61 +128,71 @@ def send_mail():
 
    
 def wiki():
-    speakup('What would you like to know about?')
-    ans=mycommand()
-    data=wikipedia.summary(ans ,sentences=2)
-    speakup(data)
-    speakup('HEY! IF YOU NEED MORE INFORMATION I CAN BROWSR THE INTERNET FOR YOU . SHOULD I?')
-    # resp=input('ENTER')
-    resp=mycommand()
-    if resp=='yes':
-        speakup('SURE! JUST A MINUTE')
-        cloud(ans)
-    else:
-        return wiki()
+    try:
+        speakup('What would you like to know about?')
+        ans=mycommand()
+        data=wikipedia.summary(ans ,sentences=2)
+        speakup(data)
+        speakup('HEY! IF YOU NEED MORE INFORMATION I CAN BROWSE THE INTERNET FOR YOU . SHOULD I?')
+        # resp=input('ENTER')
+        resp=mycommand()
+        if resp=='yes':
+            speakup('SURE! JUST A MINUTE')
+            cloud(ans)
+        else:
+            return wiki()
 
-    speakup('WOULD YOU LIKE TO KNOW SOMETHING ELSE ?')
-    # res=input('enter')
-    res=mycommand()
-    if res=='yes':
-        return wiki()
-    else:
-        return mycommand()
+        speakup('WOULD YOU LIKE TO KNOW SOMETHING ELSE ?')
+        # res=input('enter')
+        res=mycommand()
+        if res=='yes':
+            return wiki()
+        else:
+            return mycommand()
+    except Exception as e:
+        print('COULD NOT FIND WHAT YOU A LOOKING FOR!  TRY AGAIN')
+
 
 def read_out():
     t = input("Paste the text here")
     speakup(t)
    
 def myzara(text):
-    if 'help me' in text:
+    if text == 'help me':
         print('-'*55,'LIST OF COMMANDS','-'*55,''.center(os.get_terminal_size().columns))
         print('\n')
         print("say 'ACTIVATE FILE MODE' to -> Read, Write and Save A file With Voice Command\n".center(os.get_terminal_size().columns))
         print("say 'SEND MAIL' to -> SEND A MAIL TO ANYONE\n".center(os.get_terminal_size().columns))
         print("say 'SEARCH THE WEB' to -> BROWSE ANYTHING ON THE WEB\n".center(os.get_terminal_size().columns))
         print("say 'TIME' to -> KNOW ABOUT CURRENT TIME\n".center(os.get_terminal_size().columns))
+        print("say 'READ OUT' to -> MAKE ME READ SOMETHING\n".center(os.get_terminal_size().columns))
         print("say 'SHUT DOWN' to -> TO STOP THE PROGRAM\n".center(os.get_terminal_size().columns))
         print('-'*55,'GO AHEAD! GIMME A COMMAND','-'*55,''.center(os.get_terminal_size().columns))
 
-    elif 'time' in text:
+    elif text in data['intents'][4]['responses']:
         time()
-    elif 'read' in text:
+    elif text in data['intents'][5]['responses']:
         read_out()
-    elif 'send mail' in text:
+    elif text in data['intents'][6]['responses']:
         send_mail()
-    elif 'search the webn' in text:
+    elif text in data['intents'][3]['responses']:
         wiki()
-    elif 'activate file mode' in text:
+    elif text in data['intents'][7]['responses']:
         files()
     
     elif text in data['intents'][0]['pattern']:
         speakup(random.choice(data['intents'][0]['responses']))
+
     elif text in data['intents'][1]['pattern']:
         speakup(random.choice(data['intents'][1]['responses']))
-    elif 'shutdown' in text:
+
+    elif text in data['intents'][8]['responses']:
         speakup("SHUTTING DOWN ON YOUR COMMAND")
-        sys.exit("SHUTTING DOWN")
+        sys.exit()
+
     else:
         speakup(random.choice(data['intents'][2]['responses']))
 while True:
     myzara(mycommand())
+ 
+

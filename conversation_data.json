@@ -6,12 +6,32 @@
         },
         {
 
-        "pattern": ["hello", "what's up", "hey there", "how are you"],
+        "pattern": ["hello zara","hello", "hey there, what's up","what's up", "hey there", "how are you"],
         "responses": ["hey! how are uh?","hello there, wHat can i do for you?","hello! what's up", "here you are.. hai","hey! how a you doing"]
         },
         {
-        "responses": ["Sorry could not hear you", "I DID NOT GET IT","PLEASE SAY that AGAIN SIR", "could you please repeat"]
+        "responses": ["My Bad, Please Say that again","Sorry could not hear you", "I DID NOT GET IT","PLEASE SAY that AGAIN SIR", "could you please repeat"]
+        },
+        {
+        "responses": ["go online","search the web","open firefox","browse something"]
+        },
+        {
+        "responses": ["tell me the time","what's the time","what time is it"]
+        },
+        {
+        "responses": ["read out","would you please read for me","read something"]
+        },
+        {
+        "responses": ["send out an email","send an email","open email"]
+        },
+        {
+        "responses": ["write something","activate file mode","save a file"]
+        },
+        {
+        "responses": ["shutdown","quite please","turn off"]
         }
+
+
 
    ]
 }
