@@ -6,7 +6,7 @@
         },
         {
 
-        "pattern": ["hello zara","hello", "hey there, what's up","what's up", "hey there", "how are you"],
+        "pattern": ["hello zara","hello there", "hey there", "what's up","what's up", " hey there how are you"],
         "responses": ["hey! how are uh?","hello there, wHat can i do for you?","hello! what's up", "here you are.. hai","hey! how a you doing"]
         },
         {
@@ -28,7 +28,7 @@
         "responses": ["write something","activate file mode","save a file"]
         },
         {
-        "responses": ["shutdown","quite please","turn off"]
+        "responses": ["shutdown","turn off"]
         }
 
    ]
